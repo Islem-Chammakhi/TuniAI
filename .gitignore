@@ -1,0 +1,38 @@
+# Node modules
+client/node_modules/
+
+# Build output
+client/dist/
+client/.next/
+client/.cache/
+client/.turbo/
+
+# Logs
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment
+python/env/
+
+# Python cache
+python/app/__pycache__/
+python/app/api/__pycache__/
+python/app/services/__pycache__/
+python/app/__pycache__/
+
+# Python compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# VSCode settings
+.vscode/
+
+# Environment variables
+*.env
+python/app/utils/tts-key.json
