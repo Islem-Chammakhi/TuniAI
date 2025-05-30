@@ -128,7 +128,7 @@ export default function MapPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-white rounded-xl p-6 shadow-md"
+            className="bg-[#fff8eb] rounded-xl p-6 shadow-md"
           >
             <h2 className="text-xl font-bold font-el-messiri text-terracotta mb-4">
               Map Legend
@@ -181,7 +181,7 @@ export default function MapPage() {
               <h2 className="text-2xl font-bold font-el-messiri text-terracotta mb-4">
                 {selectedCategory} ({monuments.length})
               </h2>
-              <div className="bg-white rounded-xl shadow-md overflow-hidden">
+              <div className="bg-[#fff8eb] rounded-xl shadow-md overflow-hidden">
                 <div className="max-h-80 overflow-y-auto">
                   <table className="w-full">
                     <thead className="bg-sand sticky top-0">

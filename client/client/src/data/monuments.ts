@@ -156,3 +156,77 @@ export const monumentsData: Monument[] = [
     id: 6,
   },
 ];
+
+
+
+{/* Google Street View - Dynamic by recognition.name */}
+export const monumentStreetViews: Record<string, string> = {
+  el_jem:
+    "https://www.google.com/maps/embed?pb=!4v1748604877726!6m8!1m7!1srsJkpdoolhm_L2yk49bcNw!2m2!1d35.2958804578607!2d10.7075521158882!3f322.05050098967143!4f13.597496778250331!5f0.4000000000000002",
+
+  amphitheatre_carthage:
+    "https://www.google.com/maps/embed?pb=!4v1748605814460!6m8!1m7!1sNthpURgJkKC44hwcj35kgQ!2m2!1d36.85642622841283!2d10.3151940802535!3f211.9209422136773!4f2.8707157172636784!5f0.7820865974627469",
+
+  aqueduc_zagouane:
+    "https://www.google.com/maps/embed?pb=!4v1748607953274!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQzdC1PeVFF!2m2!1d36.60553921650673!2d10.1171187408944!3f94.42745877470614!4f9.426223751518592!5f0.4000000000000002",
+
+  okba_mosque:
+    "https://www.google.com/maps/embed?pb=!4v1748606386079!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRGo1SjdKU3c.!2m2!1d35.6811480385739!2d10.10433211462908!3f149.4919045744283!4f19.386802650302855!5f0.4000000000000002",
+
+  synagogue_ghriba:
+    "https://www.google.com/maps/embed?pb=!4v1748608718463!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDQ2cXlnS2c.!2m2!1d33.81405400309096!2d10.85932082655845!3f167.5858254383437!4f9.206020027810226!5f0.4000000000000002",
+
+  theatre_romain_dougga:
+    "https://www.google.com/maps/embed?pb=!4v1748607080081!6m8!1m7!1sJC53jubvm0307kUfkvF7xg!2m2!1d36.42389199315141!2d9.220164029745531!3f160.92681840009735!4f-11.44646982031837!5f0.7820865974627469",
+
+  zaytouna_mosque:
+    "https://www.google.com/maps/embed?pb=!4v1748607300586!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDQ2c3lCWlE.!2m2!1d36.79751892769492!2d10.17120041406006!3f145.26935790431654!4f9.948216426882809!5f0.7820865974627469",
+};
+
+
+
+{/* HERO SECTION */}
+export const monumentsHero = [
+  {
+    name: "El Djem Amphitheater",
+    description: "Ancient Roman amphitheater, built around 238 AD",
+    location: "El Djem, Tunisia",
+    image: "https://the-travely.com/wp-content/uploads/2020/01/El-Djem4-scaled.jpg",
+  },
+  {
+    name: "Zaytouna Mosque",
+    description: "Major Islamic learning center from the 8th century",
+    location: "Tunis, Tunisia",
+    image: "https://i.ibb.co/mVj8KmCQ/Mosqu-e-Zitouna-Kassus-2.jpg",
+  },
+  {
+    name: "Zaghouan Aqueduct",
+    description: "Roman aqueduct supplying water to ancient Carthage",
+    location: "Zaghouan, Tunisia",
+    image: "https://i.ibb.co/3mrBgpw2/zagh-ad.jpg",
+  },
+  {
+    name: "Great Mosque of Kairouan",
+    description: "Oldest mosque in North Africa, founded in 670 AD",
+    location: "Kairouan, Tunisia",
+    image: "https://i.ibb.co/YTPZwPSy/The-Great-Mosque-of-Kairouan-1-1024x683.jpg",
+  },
+  {
+    name: "El Ghriba Synagogue",
+    description: "One of the oldest synagogues in the world",
+    location: "Djerba, Tunisia",
+    image: "https://i.ibb.co/DftBvvG1/caption.jpg",
+  },
+  {
+    name: "Roman Theatre of Dougga",
+    description: "Well-preserved Roman theater from 168 AD",
+    location: "Dougga, Tunisia",
+    image: "https://i.ibb.co/B2tHTL47/site-0794-0010-750-750-20151105154429.jpg",
+  },
+  {
+    name: "Carthage Amphitheater",
+    description: "Large Roman amphitheater once seating over 30,000 spectators",
+    location: "Carthage, Tunisia",
+    image: "https://i.ibb.co/XrGxq4yP/Carthage3.jpg",
+  },
+];

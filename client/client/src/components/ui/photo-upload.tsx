@@ -94,40 +94,49 @@ export default function PhotoUpload({ onImageUpload, isLoading }: PhotoUploadPro
   };
 
   return (
-    <div className="bg-sand rounded-2xl p-8 lg:p-12 shadow-lg">
-      <h2 className="text-2xl font-bold font-el-messiri text-dark-brown mb-4">Try Monument Recognition</h2>
-      <p className="text-dark-brown/80 mb-6">
-        Upload a photo of a Tunisian monument or landmark to see our AI in action. We'll identify it and provide detailed information.
-      </p>
-      
-      <div 
-        className={`border-2 border-dashed ${dragActive ? 'border-terracotta bg-terracotta/5' : 'border-terracotta/50'} rounded-xl p-8 text-center bg-white relative`}
+    <div className="bg-[#fff8eb] rounded-2xl p-4 lg:p-10 shadow-lg">
+<div className="flex flex-col items-center text-center">
+  <h2 className="text-2xl font-bold font-el-messiri text-dark-brown mb-4">
+    Try Monument Recognition
+  </h2>
+  <p className="text-dark-brown/80 mb-6">
+    Upload a photo of a Tunisian monument or landmark to see our AI in
+    action. We'll identify it and provide detailed information.
+  </p>
+</div>
+
+      <div
+        className={`border-2 border-dashed ${
+          dragActive
+            ? "border-terracotta bg-terracotta/5"
+            : "border-terracotta/50"
+        } rounded-xl p-8 text-center bg-sand relative`}
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
         onDrop={handleDrop}
       >
         {previewUrl ? (
-          <div className="relative">
-            <img 
-              src={previewUrl} 
-              alt="Uploaded monument" 
-              className="max-h-48 mx-auto rounded-lg object-contain"
+          <div className="relative max-w-xl mx-auto">
+            {" "}
+            <img
+              src={previewUrl}
+              alt="Uploaded monument"
+              className={`max-h-[350px] max-w-full w-auto h-auto mx-auto rounded-lg object-contain transition-opacity duration-300 ${
+                isLoading ? "opacity-50" : "opacity-100"
+              }`}
             />
-            {isLoading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-dark-brown/50 rounded-lg">
-                <Loader2 className="h-12 w-12 text-white animate-spin" />
-              </div>
-            )}
           </div>
         ) : (
           <>
             <Upload className="h-12 w-12 text-terracotta mx-auto mb-4" />
             <h3 className="font-semibold mb-2">Drag & Drop Your Photo</h3>
-            <p className="text-sm text-dark-brown/60 mb-4">or click to browse files</p>
+            <p className="text-sm text-dark-brown/60 mb-4">
+              or click to browse files
+            </p>
           </>
         )}
-        
+
         <Input
           ref={fileInputRef}
           type="file"
@@ -135,10 +144,10 @@ export default function PhotoUpload({ onImageUpload, isLoading }: PhotoUploadPro
           onChange={handleChange}
           className="hidden"
         />
-        
+
         <Button
           onClick={handleButtonClick}
-          className="px-6 py-2.5 bg-terracotta text-white rounded-lg font-medium hover:bg-opacity-90 transition-colors"
+          className="px-6 py-2.5 bg-terracotta text-white rounded-lg font-medium hover:bg-opacity-90 transition-colors mt-6"
           disabled={isLoading}
         >
           {isLoading ? (
@@ -152,14 +161,14 @@ export default function PhotoUpload({ onImageUpload, isLoading }: PhotoUploadPro
             "Upload Image"
           )}
         </Button>
-        
+
         <p className="text-xs text-dark-brown/50 mt-4">
           Supports JPG, PNG • Max size 10MB
         </p>
       </div>
-      
+
       <div className="mt-6 flex items-center justify-center">
-        <Button 
+        <Button
           className="flex items-center justify-center space-x-2 px-5 py-2.5 bg-azure-blue rounded-lg text-white font-medium"
           onClick={takePhoto}
           disabled={isLoading}
