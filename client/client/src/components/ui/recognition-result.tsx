@@ -1,8 +1,7 @@
-import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Button } from "@/components/ui/button";
-import { Info } from "lucide-react";
+import { useEffect } from "react";
+import { fetchAndPlayAudio, stopAudio } from "@/lib/monumentsService";
 
 interface RecognitionResultProps {
   result: any;
@@ -13,6 +12,21 @@ export default function RecognitionResult({
   result,
   isLoading,
 }: RecognitionResultProps) {
+  let currentAudio: HTMLAudioElement | null = null;
+  useEffect(() => {
+    if (!isLoading && result) {
+      console.log("a7aaaaaaaa");
+      let items = localStorage.getItem("userPreferences") || null;
+      let user_type = items ? JSON.parse(items).profile : "tourist";
+      let language = items ? JSON.parse(items).language : "en-GB";
+      fetchAndPlayAudio(result.name, user_type, language, currentAudio);
+    }
+
+    // Cleanup function to stop audio when component unmounts
+    return () => {
+      stopAudio(currentAudio);
+    };
+  }, [result]);
   if (isLoading) {
     return (
       <div className="bg-white rounded-xl p-6 shadow-md h-full">

@@ -1,5 +1,5 @@
 import { Monument, RecognitionResult } from "../types/monument";
-import { monumentsData } from "../data/monuments";
+import { monumentsData, recognizedMonuments } from "../data/monuments";
 import axios from "../lib/axios";
 
 // Simulated delay to mimic API calls
@@ -66,6 +66,49 @@ export async function recognizeMonument(
     return { recognition };
   } catch (error) {
     throw new Error("Failed to recognize monument. Please try again.");
+  }
+}
+
+export function playAudioFromBlob(
+  blob: Blob,
+  currentAudio: HTMLAudioElement | null = null
+) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
+  const audioUrl = URL.createObjectURL(blob);
+  currentAudio = new Audio(audioUrl);
+  currentAudio.play();
+}
+
+export function stopAudio(currentAudio: HTMLAudioElement | null = null) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+  }
+}
+
+export async function fetchAndPlayAudio(
+  monument: keyof typeof recognizedMonuments,
+  userType: string,
+  language: string,
+  currentAudio: HTMLAudioElement | null = null
+) {
+  try {
+    stopAudio(currentAudio);
+
+    const response = await axios.post(
+      "assistant",
+      { name: recognizedMonuments[monument], user_type: userType, language },
+      { responseType: "blob" }
+    );
+
+    playAudioFromBlob(response.data, currentAudio); // Joue le fichier reçu
+  } catch (error) {
+    console.error("Erreur lors de la lecture audio :", error);
   }
 }
 

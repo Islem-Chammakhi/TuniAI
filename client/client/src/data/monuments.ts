@@ -156,3 +156,13 @@ export const monumentsData: Monument[] = [
     id: 6,
   },
 ];
+
+export const recognizedMonuments = {
+  amphitheatre_carthage: "amphithéâtre de Carthage",
+  aqueduc_zagouane: "aqueduc de Zaghouan",
+  el_jem: "amphithéâtre d'el jem",
+  okba_mosque: "mosquée Okba",
+  synagogue_ghriba: "synagogue de la Ghriba",
+  theatre_romain_dougga: "théâtre romain de Dougga",
+  zaytouna_mosque: "mosquée Zaytouna",
+};
