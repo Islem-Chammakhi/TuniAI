@@ -13,7 +13,7 @@ def synthesize_ssml(ssml_text: str, language_code: str, voice_name: str = None):
 
         voice = texttospeech.VoiceSelectionParams(
             language_code=language_code,
-            name=voice_name or f"{language_code}-Standard-A"
+            name=voice_name or f"{language_code}-Wavenet-A"
         )
 
         audio_config = texttospeech.AudioConfig(

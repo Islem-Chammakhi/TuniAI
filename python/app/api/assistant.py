@@ -14,6 +14,10 @@ async def assistant(request: Request):
     user_type = body.get("user_type")
     language = body.get("language")
 
+    print(name)
+    print(user_type)
+    print(language)
+
     try:
         ssml_response = generate_ssml_description(name, user_type, language)
         audio_bytes  = synthesize_ssml(ssml_response, language_code=language)

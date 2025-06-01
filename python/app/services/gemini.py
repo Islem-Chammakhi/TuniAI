@@ -8,10 +8,10 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 def generate_ssml_description(monument: str, user_type: str, language: str) -> str:
     prompt = f"""
-You are a highly intelligent and expressive AI voice assistant specialized in cultural tourism.
+You are an intelligent and expressive AI voice assistant specialized in cultural tourism.
 Your task is to generate an attractive, dynamic, and fully SSML-formatted voice narration about a monument.
 Input Parameters:
-- Monument : {monument}
+- The Monument's Name : {monument}
 - Visitor Profile : {user_type}
 - Language : {language}
 Your Goal:
@@ -20,16 +20,12 @@ Your Goal:
  -Include key information such as:
 
   .Date of construction
-
   .Historical or cultural value
-
-  .Impact and relevance today
 
  -Adapt the style, vocabulary, and tone to suit the visitor's profile.
 
- -Use expressive, clear, and friendly language.
+ -Use expressive, clear, and friendly language and try mentionning the monument's name.
 
- -Make it captivating and emotionally engaging, especially for families or children.
 SSML Output Requirements:
  -Output must be 100% valid SSML and start only with the <speak> tag.
 
@@ -42,6 +38,8 @@ SSML Output Requirements:
  -Do not include code formatting (like ```xml).
 
  -The narration must sound natural, expressive, and emotionally resonant, adapted to the visitor's age and interest.
+
+ IMPORTANT: Make the paragraph as brief as possible and just highlight the important information. 
 """
 
     response = client.models.generate_content(model="gemini-2.0-flash",
