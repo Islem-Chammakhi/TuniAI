@@ -108,7 +108,7 @@ export default function GallerySection() {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div
                 key={i}
-                className="bg-white rounded-xl shadow-md overflow-hidden"
+                className="bg-[#fff8eb] rounded-xl shadow-md overflow-hidden"
               >
                 <Skeleton className="w-full h-48" />
                 <div className="p-6">

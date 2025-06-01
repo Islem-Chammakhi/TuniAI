@@ -1,8 +1,21 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { monumentsHero } from "@/data/monuments";
+
+
 
 export default function HeroSection() {
+  const [index, setIndex] = useState(0);
+  const current = monumentsHero[index];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % monumentsHero.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <section
       id="home"
@@ -44,7 +57,7 @@ export default function HeroSection() {
                   <span>Identify Monument</span>
                 </Button>
               </Link>
-              <Link href="/monuments">
+              <Link href="/map">
                 <Button
                   variant="outline"
                   className="px-8 py-6 rounded-full border-2 border-azure-blue text-azure-blue font-medium hover:bg-azure-blue hover:text-white transition-all flex items-center justify-center space-x-2"
@@ -74,10 +87,8 @@ export default function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <motion.img
-              src="https://the-travely.com/wp-content/uploads/2020/01/El-Djem4-scaled.jpg"
-              alt="El Djem Amphitheater in Tunisia"
-              className="rounded-2xl shadow-2xl object-cover h-96 w-full lg:h-[500px] border-8 border-white rotate-2"
+            {/* Floating image */}
+            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{
                 duration: 3,
@@ -85,14 +96,29 @@ export default function HeroSection() {
                 repeatType: "reverse",
                 ease: "easeInOut",
               }}
-            />
+            >
+              <div className="relative h-96 w-full lg:h-[500px]">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={current.image}
+                    src={current.image}
+                    alt={current.name}
+                    className="absolute inset-0 h-full w-full object-cover rounded-2xl shadow-2xl border-8 border-white rotate-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </AnimatePresence>
+              </div>
+            </motion.div>
 
-            {/* Floating recognition card */}
+            {/* Floating card */}
             <motion.div
               className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4 max-w-xs"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.6, delay: 1 }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               <div className="flex items-start space-x-3">
@@ -112,36 +138,42 @@ export default function HeroSection() {
                     />
                   </svg>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-terracotta">
-                    El Djem Amphitheater
-                  </h3>
-                  <p className="text-sm text-dark-brown/70">
-                    Ancient Roman amphitheater, built around 238 AD
-                  </p>
-                  <div className="flex items-center mt-1 text-xs text-dark-brown/60">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-3 w-3 mr-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                <div className="w-full">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={current.name}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.4 }}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                    <span>El Djem, Tunisia</span>
-                  </div>
+                      <h3 className="font-semibold text-terracotta">{current.name}</h3>
+                      <p className="text-sm text-dark-brown/70 mb-2">{current.description}</p>
+                      <div className="flex items-center mt-1 text-xs text-dark-brown/60">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-3 w-3 mr-1"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                        <span>{current.location}</span>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
               </div>
             </motion.div>
