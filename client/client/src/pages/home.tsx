@@ -3,7 +3,6 @@ import HeroSection from "@/components/sections/hero-section";
 import FeatureSection from "@/components/sections/feature-section";
 import GallerySection from "@/components/sections/gallery-section";
 import PatternSection from "@/components/sections/pattern-section";
-import CTASection from "@/components/sections/cta-section";
 import PatternBackground from "@/components/ui/pattern-background";
 import { Helmet } from "react-helmet";
 
