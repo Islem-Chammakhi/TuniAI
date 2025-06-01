@@ -11,6 +11,7 @@ import Discover from "@/pages/discover";
 import About from "@/pages/about";
 import NotFound from "@/pages/not-found";
 import MapPage from "@/pages/map";
+import TravelQuestionnaire from "./pages/TravelQuestionnaire";
 
 // Layout components
 import Navbar from "@/components/layout/navbar";
@@ -23,6 +24,7 @@ function Router() {
     <AnimatePresence mode="wait">
       <Switch key={location}>
         <Route path="/" component={Home} />
+        <Route path="/questionnaire" component={TravelQuestionnaire} />
         <Route path="/discover" component={Discover} />
         <Route path="/map" component={MapPage} />
         <Route path="/about" component={About} />

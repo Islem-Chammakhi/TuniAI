@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api import predict
 from app.api import assistant
 from app.api import test
+from app.api import planner_trip
 
 app = FastAPI()
 
@@ -21,3 +22,4 @@ app.add_middleware(
 app.include_router(predict.router)
 app.include_router(assistant.router)
 app.include_router(test.router)
+app.include_router(planner_trip.router)

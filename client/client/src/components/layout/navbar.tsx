@@ -88,6 +88,12 @@ export default function Navbar() {
           <NavLink href="/" isActive={location === "/"}>
             Home
           </NavLink>
+          <NavLink
+            href="/questionnaire"
+            isActive={location === "/questionnaire"}
+          >
+            Trip Planner
+          </NavLink>
           <NavLink href="/discover" isActive={location === "/discover"}>
             Discover
           </NavLink>
@@ -116,6 +122,12 @@ export default function Navbar() {
             <div className="px-6 py-4 space-y-4">
               <MobileNavLink href="/" isActive={location === "/"}>
                 Home
+              </MobileNavLink>
+              <MobileNavLink
+                href="/questionnaire"
+                isActive={location === "/questionnaire"}
+              >
+                Trip Planner
               </MobileNavLink>
               <MobileNavLink
                 href="/discover"
