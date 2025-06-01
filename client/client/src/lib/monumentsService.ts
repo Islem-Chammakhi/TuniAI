@@ -1,7 +1,6 @@
 import { Monument, RecognitionResult } from "../types/monument";
 import { monumentsData, recognizedMonuments } from "../data/monuments";
 import axios from "../lib/axios";
-import FormData from "@/pages/TravelQuestionnaire";
 
 // Simulated delay to mimic API calls
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -61,7 +60,10 @@ export async function recognizeMonument(
       imageUrl,
       confidence: (response.data.confidence * 100).toFixed(3) + "%",
       timestamp: new Date().toISOString(),
-      name: response.data.predicted_class || "Unknown Monument",
+      name:
+        recognizedMonuments[
+          response.data.predicted_class as keyof typeof recognizedMonuments
+        ] || "Unknown Monument",
     };
 
     return { recognition };

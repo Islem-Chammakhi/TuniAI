@@ -1,13 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
-<<<<<<< HEAD
+
 import { useEffect } from "react";
 import { fetchAndPlayAudio, stopAudio } from "@/lib/monumentsService";
-=======
+
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
 import { monumentStreetViews } from "@/data/monuments";
->>>>>>> firas
 
 interface RecognitionResultProps {
   result: any;
@@ -63,11 +62,10 @@ export default function RecognitionResult({
   if (!result) {
     return (
       <div className="bg-[#fff8eb] rounded-xl p-6 shadow-md h-full flex flex-col justify-center items-center text-center">
-
         <h3 className="text-xl font-bold font-el-messiri text-terracotta mb-3 ">
           Ready to Identify Monuments?
         </h3>
-                <p className="text-dark-brown/70 mb-6">
+        <p className="text-dark-brown/70 mb-6">
           Upload a photo of a Tunisian monument or landmark on the left to see
           our AI recognition in action.
         </p>
@@ -97,9 +95,10 @@ export default function RecognitionResult({
 
   const { recognition } = result;
 
-  {/* src de street view map selon recognition.name */}
+  {
+    /* src de street view map selon recognition.name */
+  }
   const iframeSrc = monumentStreetViews[recognition.name];
-
 
   return (
     <AnimatePresence mode="wait">
