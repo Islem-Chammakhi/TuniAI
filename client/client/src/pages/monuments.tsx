@@ -67,14 +67,14 @@ export default function Monuments() {
   return (
     <>
       <Helmet>
-        <title>Tunisian Monuments Gallery - TunisiaAI</title>
+        <title>TuniTales</title>
         <meta
           name="description"
           content="Explore the most iconic landmarks and monuments of Tunisia's rich heritage. Browse our gallery of ancient Roman ruins, Islamic architecture, coastal villages, and historical cities."
         />
         <meta
           property="og:title"
-          content="Tunisian Monuments Gallery - TunisiaAI"
+          content="Tunisian Monuments Gallery - TuniTales"
         />
         <meta
           property="og:description"

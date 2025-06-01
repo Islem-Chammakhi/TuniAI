@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Clock, Wallet, Car, RotateCcw, Star } from "lucide-react";
+import { MapPin, Clock, Wallet, Car, RotateCcw, Star, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { FormData } from "@/pages/TravelQuestionnaire";
+import { FormData } from "@/pages/trip-planner";
+
 
 interface TravelResultProps {
   formData: FormData;
@@ -134,24 +135,8 @@ const TravelResult: React.FC<TravelResultProps> = ({
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="container mx-auto px-4 py-8"
     >
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-center mb-8"
-        >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
-            <Star className="w-8 h-8 text-orange-600" />
-          </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
-            Your Perfect Tunisia Adventure
-          </h1>
-          <p className="text-lg text-gray-600">
-            Based on your preferences, we've crafted the ideal journey for you
-          </p>
-        </motion.div>
+      <div className="max-w-6xl mx-auto">
+
 
         {/* Main Result Card */}
         <motion.div
@@ -159,25 +144,28 @@ const TravelResult: React.FC<TravelResultProps> = ({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          <Card className="overflow-hidden bg-white/95 backdrop-blur-sm border-orange-200/50 shadow-2xl">
+          <Card className="overflow-hidden bg-white/95 backdrop-blur-sm border-orange-200/50 shadow-2xl mb-8">
             {/* Destination Image */}
-            <div className="relative h-64 md:h-80 overflow-hidden">
-              <img
-                src={suggestion.image}
-                alt={data?.destination}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <div>
+              <div className="relative h-64 md:h-80 overflow-hidden">
+                <img
+                  src="https://i.ibb.co/p927Djb/Foto-Jet-2.png"
+                  alt="destination"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent" />
+              </div>
+              <div className="p-6 text-gray-800 mt-2">
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 text-orange-700">
                   {data?.destination}
                 </h2>
-                <p className="text-lg opacity-90">{data?.description}</p>
+                <p className="text-lg">{data?.description}</p>
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-8">
+            <div className="px-6 pb-8">
               {/* Key Details Grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <motion.div
@@ -192,7 +180,7 @@ const TravelResult: React.FC<TravelResultProps> = ({
                   <div>
                     <p className="text-sm text-gray-600">Location</p>
                     <p className="font-semibold text-gray-800">
-                      {suggestion.name.split(" ")[0]}
+                      {suggestion.name}
                     </p>
                   </div>
                 </motion.div>
@@ -266,13 +254,14 @@ const TravelResult: React.FC<TravelResultProps> = ({
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 1.1 + index * 0.1, duration: 0.3 }}
-                      className="p-4 bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg border border-orange-100"
+                      className="p-4 bg-gradient-to-br to-orange-50 from-amber-50 rounded-lg border border-orange-100"
                     >
                       <p className="font-medium text-gray-800">{highlight}</p>
                     </motion.div>
                   ))}
                 </div>
               </motion.div>
+
               {/* Activities */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -295,7 +284,7 @@ const TravelResult: React.FC<TravelResultProps> = ({
                           duration: 0.5,
                           type: "spring",
                         }}
-                        className="rounded-2xl shadow-xl bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200/60 p-6 flex flex-col gap-3 hover:shadow-2xl transition-shadow duration-300"
+                        className="rounded-2xl shadow-xl bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200/60 p-6 flex flex-col gap-3 hover:shadow-2xl transition-shadow duration-300"
                       >
                         <div className="flex items-center gap-3 mb-2">
                           <span className="inline-flex items-center justify-center w-10 h-10 bg-orange-200 text-orange-700 rounded-full font-bold text-lg shadow">
@@ -317,9 +306,8 @@ const TravelResult: React.FC<TravelResultProps> = ({
                                     delay: 1.4 + dayIdx * 0.15 + actIdx * 0.07,
                                     duration: 0.3,
                                   }}
-                                  className="flex items-center gap-2 text-gray-700 bg-white/80 rounded-lg px-3 py-2 shadow-sm border border-orange-100"
+                                  className="flex items-center gap-2 text-gray-700 bg-white/80 rounded-xl px-3 py-2 shadow-sm border border-orange-100"
                                 >
-                                  <span className="w-2 h-2 bg-orange-400 rounded-full inline-block"></span>
                                   <span>{activity}</span>
                                 </motion.li>
                               )
@@ -329,21 +317,27 @@ const TravelResult: React.FC<TravelResultProps> = ({
                     ))}
                 </div>
               </motion.div>
+
               {/* Tips Section */}
               {data?.tips && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.5, duration: 0.5 }}
-                  className="mb-8 flex justify-center"
+                  className="mb-8"
                 >
-                  <div className="max-w-2xl w-full bg-gradient-to-r from-orange-100 via-amber-50 to-orange-50 border border-orange-200/60 rounded-2xl shadow-lg px-6 py-5 flex items-center gap-3">
-                    <span className="inline-flex items-center justify-center w-10 h-10 bg-orange-200 text-orange-700 rounded-full font-bold text-xl shadow mr-2">
-                      💡
-                    </span>
-                    <span className="text-lg text-gray-800 font-medium">
-                      {data.tips}
-                    </span>
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    Travel Tips
+                  </h3>
+                  <div className="grid md:grid-cols-1 gap-4">
+                    <div className="p-4 bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg border border-orange-100 flex items-start gap-3 shadow-sm">
+                      <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+                        <Lightbulb className="w-5 h-5 text-orange-600" />{" "}
+                      </div>
+                      <p className="text-gray-800 font-medium text-base">
+                        {data.tips}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -359,7 +353,7 @@ const TravelResult: React.FC<TravelResultProps> = ({
                   size="lg"
                   variant="outline"
                   onClick={onStartOver}
-                  className="bg-orange-600 hover:bg-orange-700 px-8 py-4 text-lg"
+                  className="bg-terracotta hover:bg-orange-800 px-12 py-4 text-lg text-white rounded-3xl"
                 >
                   <RotateCcw className="w-5 h-5 mr-2" />
                   Start Over

@@ -35,13 +35,13 @@ export default function FeatureCard({
 
   return (
     <motion.div 
-      className="bg-sand rounded-2xl p-6 hover-card"
+      className="bg-sand rounded-2xl p-6 hover-card "
       initial={{ y: 30, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay }}
     >
-      <div className={`w-16 h-16 ${selectedColor.bg} rounded-full flex items-center justify-center ${selectedColor.text} mb-6`}>
+      <div className={`w-16 h-16 ${selectedColor.bg} rounded-full flex items-center justify-center ${selectedColor.text} mb-4`}>
         {icon}
       </div>
       <h3 className={`text-xl font-bold font-el-messiri ${selectedColor.text} mb-3`}>

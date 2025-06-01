@@ -20,13 +20,12 @@ export default function RecognitionResult({
   let currentAudio: HTMLAudioElement | null = null;
   useEffect(() => {
     if (!isLoading && result) {
-      console.log("a7aaaaaaaa");
       let items = localStorage.getItem("userPreferences") || null;
       let user_type = items ? JSON.parse(items).profile : "tourist";
       let language = items ? JSON.parse(items).language : "en-GB";
-      fetchAndPlayAudio(result.name2, user_type, language, currentAudio);
+      fetchAndPlayAudio(result.recognition.name2, user_type, language, currentAudio);
+      console.log(result.recognition.name2);
     }
-
     // Cleanup function to stop audio when component unmounts
     return () => {
       stopAudio(currentAudio);
@@ -95,9 +94,7 @@ export default function RecognitionResult({
 
   const { recognition } = result;
 
-  {
-    /* src de street view map selon recognition.name */
-  }
+  /* src de street view map selon recognition.name */
   const iframeSrc = monumentStreetViews[recognition.name];
 
   return (

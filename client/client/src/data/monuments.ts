@@ -1,11 +1,12 @@
 // Import type from relative path
 import type { Monument } from "../types/monument";
 
+// Map page
 export const monumentsData: Monument[] = [
   {
     name: "El Djem Amphitheater",
     description:
-      "One of the most impressive Roman remains in Africa, this 3rd-century monument is remarkably well-preserved.",
+      "One of the most impressive Roman remains, this 3rd-century monument is remarkably well-preserved.",
     location: "El Djem, Tunisia",
     category: "Roman Era",
     era: "3rd century AD",
@@ -158,24 +159,23 @@ export const monumentsData: Monument[] = [
 ];
 
 export const recognizedMonuments = {
-  amphitheatre_carthage: "amphithéâtre de Carthage",
-  aqueduc_zagouane: "aqueduc de Zaghouan",
-  el_jem: "amphithéâtre d'el jem",
-  okba_mosque: "mosquée Okba",
-  synagogue_ghriba: "synagogue de la Ghriba",
-  theatre_romain_dougga: "théâtre romain de Dougga",
-  zaytouna_mosque: "mosquée Zaytouna",
+  amphitheatre_carthage: "Carthage Amphitheatre",
+  aqueduc_zagouane: "Zaghouan Aqueduct",
+  el_jem: "El Djem Amphitheatre",
+  okba_mosque: "Okba Ibn Nafaa Mosque",
+  synagogue_ghriba: "El Ghriba Synagogue",
+  theatre_romain_dougga: "Roman theatre of Dougga",
+  zaytouna_mosque: "Zaytuna Mosque",
 };
 
-{
-  /* Google Street View - Dynamic by recognition.name */
-}
+
+/* Google Street View */
 export const monumentStreetViews: Record<string, string> = {
   el_jem:
     "https://www.google.com/maps/embed?pb=!4v1748604877726!6m8!1m7!1srsJkpdoolhm_L2yk49bcNw!2m2!1d35.2958804578607!2d10.7075521158882!3f322.05050098967143!4f13.597496778250331!5f0.4000000000000002",
 
   amphitheatre_carthage:
-    "https://www.google.com/maps/embed?pb=!4v1748605814460!6m8!1m7!1sNthpURgJkKC44hwcj35kgQ!2m2!1d36.85642622841283!2d10.3151940802535!3f211.9209422136773!4f2.8707157172636784!5f0.7820865974627469",
+    "https://www.google.com/maps/embed?pb=!4v1748717905542!6m8!1m7!1s5LEwpbLzgBoU3Ss_wJ09BA!2m2!1d36.85779971376986!2d10.32994820120078!3f266.37735854252236!4f-18.728554676044652!5f0.4000000000000002",
 
   aqueduc_zagouane:
     "https://www.google.com/maps/embed?pb=!4v1748607953274!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQzdC1PeVFF!2m2!1d36.60553921650673!2d10.1171187408944!3f94.42745877470614!4f9.426223751518592!5f0.4000000000000002",
@@ -193,9 +193,8 @@ export const monumentStreetViews: Record<string, string> = {
     "https://www.google.com/maps/embed?pb=!4v1748607300586!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRDQ2c3lCWlE.!2m2!1d36.79751892769492!2d10.17120041406006!3f145.26935790431654!4f9.948216426882809!5f0.7820865974627469",
 };
 
-{
-  /* HERO SECTION */
-}
+
+/* Hero Section */
 export const monumentsHero = [
   {
     name: "El Djem Amphitheater",
@@ -234,7 +233,7 @@ export const monumentsHero = [
     description: "Well-preserved Roman theater from 168 AD",
     location: "Dougga, Tunisia",
     image:
-      "https://i.ibb.co/B2tHTL47/site-0794-0010-750-750-20151105154429.jpg",
+      "https://i.ibb.co/pBdK3Ddx/229177-w-1600-h-900-q-70-m-crop.jpg",
   },
   {
     name: "Carthage Amphitheater",

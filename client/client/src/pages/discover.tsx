@@ -47,12 +47,12 @@ export default function Discover() {
     <>
       <UserPreferencesModal />
       <Helmet>
-        <title>Discover Monuments - TunisiaAI</title>
+        <title>TuniTales</title>
         <meta
           name="description"
           content="Upload photos of Tunisian monuments and let our AI identify them. Learn about history, architecture, and cultural significance of each monument."
         />
-        <meta property="og:title" content="Discover Monuments - TunisiaAI" />
+        <meta property="og:title" content="Discover Monuments - TuniTales" />
         <meta
           property="og:description"
           content="Upload photos of Tunisian monuments and let our AI identify them."

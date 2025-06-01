@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FormData } from "@/pages/TravelQuestionnaire";
+import { FormData } from "@/pages/trip-planner";
 
 interface DurationStepProps {
   formData: FormData;

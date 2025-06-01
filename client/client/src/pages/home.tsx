@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>TunisiaAI - Discover Tunisian Monuments</title>
+        <title>TuniTales</title>
         <meta
           name="description"
           content="Explore Tunisia's rich cultural monuments and landmarks with our intelligent recognition system. Capture, learn, and immerse yourself in the beauty of Tunisian heritage."
         />
         <meta
           property="og:title"
-          content="TunisiaAI - Discover Tunisian Monuments"
+          content="TuniTales - Discover Tunisian Monuments"
         />
         <meta
           property="og:description"

@@ -11,7 +11,7 @@ import Discover from "@/pages/discover";
 import About from "@/pages/about";
 import NotFound from "@/pages/not-found";
 import MapPage from "@/pages/map";
-import TravelQuestionnaire from "./pages/TravelQuestionnaire";
+import TravelQuestionnaire from "./pages/trip-planner";
 
 // Layout components
 import Navbar from "@/components/layout/navbar";

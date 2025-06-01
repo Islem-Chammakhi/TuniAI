@@ -10,7 +10,7 @@ import { Monument } from "../types/monument";
 
 export default function MonumentDetails() {
   const { id } = useParams();
-  const monumentId = parseInt(id);
+  const monumentId = parseInt(id ?? "");
   
   const [monument, setMonument] = useState<Monument | null>(null);
   const [relatedMonuments, setRelatedMonuments] = useState<Monument[]>([]);
@@ -73,9 +73,9 @@ export default function MonumentDetails() {
     <>
       {monument && (
         <Helmet>
-          <title>{monument.name} - TunisiaAI</title>
+          <title>{monument.name} - TuniTales</title>
           <meta name="description" content={monument.description} />
-          <meta property="og:title" content={`${monument.name} - TunisiaAI`} />
+          <meta property="og:title" content={`${monument.name} - TuniTales`} />
           <meta property="og:description" content={monument.description} />
           <meta property="og:type" content="article" />
           <meta property="og:image" content={monument.imageUrl} />

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FormData } from "@/pages/TravelQuestionnaire";
+import { FormData } from "@/pages/trip-planner";
 
 interface BudgetStepProps {
   formData: FormData;
@@ -43,22 +43,18 @@ const BudgetStep: React.FC<BudgetStepProps> = ({
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: index * 0.1 }}
-          className={`p-6 rounded-xl border-2 cursor-pointer transition-all duration-300 hover:scale-[1.02] ${
+          className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-300 hover:scale-[1.02] ${
             formData.budget === budget.id
               ? "border-orange-500 bg-orange-50 shadow-lg"
               : "border-gray-200 bg-white hover:border-orange-300"
           }`}
           onClick={() => updateFormData("budget", budget.id)}
         >
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col items-center text-center space-y-2">
             <div className="text-3xl">{budget.emoji}</div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-gray-800 mb-1">
-                {budget.label}
-              </h3>
-              <p className="text-orange-600 font-medium mb-1">{budget.range}</p>
-              <p className="text-sm text-gray-600">{budget.description}</p>
-            </div>
+            <h3 className="font-semibold text-gray-800">{budget.label}</h3>
+            <p className="text-orange-600 font-medium">{budget.range}</p>
+            <p className="text-sm text-gray-600">{budget.description}</p>
           </div>
         </motion.div>
       ))}

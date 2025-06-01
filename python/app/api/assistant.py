@@ -10,10 +10,9 @@ router = APIRouter()
 @router.post("/assistant")
 async def assistant(request: Request):
     body = await request.json()
-    name = body.get("monument")
+    name = body.get("name")
     user_type = body.get("user_type")
     language = body.get("language")
-
     print(name)
     print(user_type)
     print(language)

@@ -39,14 +39,14 @@ export default function MapPage() {
   return (
     <>
       <Helmet>
-        <title>Interactive Monument Map - TunisiaAI</title>
+        <title>TuniTales</title>
         <meta
           name="description"
           content="Explore Tunisian monuments on an interactive map. Discover the geographical distribution of historical sites, ruins, and architectural masterpieces across Tunisia."
         />
         <meta
           property="og:title"
-          content="Interactive Monument Map - TunisiaAI"
+          content="Interactive Monument Map - TuniTales"
         />
         <meta
           property="og:description"
@@ -68,7 +68,7 @@ export default function MapPage() {
             <h1 className="text-3xl lg:text-4xl font-bold font-el-messiri text-terracotta mb-4">
               Explore Tunisian Monuments
             </h1>
-            <p className="text-lg text-dark-brown/70 max-w-2xl mx-auto">
+            <p className="text-lg text-dark-brown/70 max-w-3xl mx-auto">
               Discover the geographical distribution of historical sites, ruins,
               and architectural masterpieces across Tunisia
             </p>
@@ -128,7 +128,7 @@ export default function MapPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-[#fff8eb] rounded-xl p-6 shadow-md"
+            className="bg-[#fff8eb] rounded-xl p-6 shadow-md "
           >
             <h2 className="text-xl font-bold font-el-messiri text-terracotta mb-4">
               Map Legend
@@ -181,10 +181,10 @@ export default function MapPage() {
               <h2 className="text-2xl font-bold font-el-messiri text-terracotta mb-4">
                 {selectedCategory} ({monuments.length})
               </h2>
-              <div className="bg-[#fff8eb] rounded-xl shadow-md overflow-hidden">
+              <div className="bg-[#fff8eb] rounded-xl shadow-md overflow-hidden border">
                 <div className="max-h-80 overflow-y-auto">
                   <table className="w-full">
-                    <thead className="bg-sand sticky top-0">
+                    <thead className="bg-sand top-0">
                       <tr>
                         <th className="px-4 py-3 text-left text-dark-brown/80 font-medium">
                           Name

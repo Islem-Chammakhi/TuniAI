@@ -48,7 +48,7 @@ export default function Navbar() {
               <path d="M12 2C7.03 2 3 6.03 3 11C3 14.03 4.53 16.82 7 18.47V22H9V19H11V22H13V19H15V22H17V18.46C19.47 16.81 21 14.03 21 11C21 6.03 16.97 2 12 2M12 4C13.8 4 15.5 4.91 16.54 6.36C17 5.2 18.46 4.5 20 4.97C20 4.97 18.87 6.22 19 7C19.19 8.19 20.06 9.12 21.03 9.68C20.32 12.75 16.96 15 13.25 14.25C10.2 13.63 8 11.06 8 8C8 5.79 9.79 4 12 4Z" />
             </svg>
             <span className="text-2xl font-bold font-el-messiri text-terracotta">
-              TunisiaAI
+              TuniTales
             </span>
           </div>
         </Link>
@@ -92,10 +92,7 @@ export default function Navbar() {
             href="/questionnaire"
             isActive={location === "/questionnaire"}
           >
-            Trip Planner
-          </NavLink>
-          <NavLink href="/discover" isActive={location === "/discover"}>
-            Discover
+            Plan
           </NavLink>
           <NavLink href="/map" isActive={location === "/map"}>
             Map
@@ -103,9 +100,12 @@ export default function Navbar() {
           <NavLink href="/about" isActive={location === "/about"}>
             About
           </NavLink>
-          <Button className="px-6 py-2 rounded-full bg-terracotta text-white font-medium hover:bg-opacity-90 transition-colors shadow-md">
-            Sign In
-          </Button>
+          <Link href="/discover">
+            <Button className="px-6 py-2 rounded-full bg-terracotta text-sm text-white font-medium hover:bg-opacity-90 transition-colors shadow-md">
+              Identify
+            </Button>
+          </Link>
+
         </div>
       </nav>
 
