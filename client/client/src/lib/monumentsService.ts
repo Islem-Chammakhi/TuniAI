@@ -60,10 +60,11 @@ export async function recognizeMonument(
       imageUrl,
       confidence: (response.data.confidence * 100).toFixed(3) + "%",
       timestamp: new Date().toISOString(),
-      name:
+      name: response.data.predicted_class,
+      name2:
         recognizedMonuments[
           response.data.predicted_class as keyof typeof recognizedMonuments
-        ] || "Unknown Monument",
+        ],
     };
 
     return { recognition };
@@ -95,7 +96,7 @@ export function stopAudio(currentAudio: HTMLAudioElement | null = null) {
 }
 
 export async function fetchAndPlayAudio(
-  monument: keyof typeof recognizedMonuments,
+  monument: string,
   userType: string,
   language: string,
   currentAudio: HTMLAudioElement | null = null
@@ -105,7 +106,7 @@ export async function fetchAndPlayAudio(
 
     const response = await axios.post(
       "assistant",
-      { name: recognizedMonuments[monument], user_type: userType, language },
+      { name: monument, user_type: userType, language },
       { responseType: "blob" }
     );
 

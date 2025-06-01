@@ -28,6 +28,7 @@ export interface RecognitionResult {
   confidence: string;
   timestamp: string;
   name: string;
+  name2: string;
 }
 
 export interface UserImage {

@@ -24,7 +24,7 @@ export default function RecognitionResult({
       let items = localStorage.getItem("userPreferences") || null;
       let user_type = items ? JSON.parse(items).profile : "tourist";
       let language = items ? JSON.parse(items).language : "en-GB";
-      fetchAndPlayAudio(result.name, user_type, language, currentAudio);
+      fetchAndPlayAudio(result.name2, user_type, language, currentAudio);
     }
 
     // Cleanup function to stop audio when component unmounts
@@ -129,7 +129,7 @@ export default function RecognitionResult({
 
           <div className="flex flex-col">
             <h3 className="font-bold text-azure-blue text-lg">
-              {recognition.name}
+              {recognition.name2}
             </h3>
 
             <div className="text-xs text-dark-brown/60 flex items-center">

@@ -8,22 +8,40 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 def generate_ssml_description(monument: str, user_type: str, language: str) -> str:
     prompt = f"""
-Tu es un guide vocal touristique intelligent. Ton but est de générer une description en format **strictement SSML**.
-Voici les instructions :
+You are a highly intelligent and expressive AI voice assistant specialized in cultural tourism.
+Your task is to generate an attractive, dynamic, and fully SSML-formatted voice narration about a monument.
+Input Parameters:
 - Monument : {monument}
-- Profil : {user_type}
-- Langue : {language}
-- Fais en sorte que ce soit captivant, fluide, adapté à l'âge et à l'intérêt du profil.
-- Utilise un langage simple et expressif.
-- Utilise <speak>, <break>, <emphasis>, et d'autres balises SSML utiles.
-- Commence directement par le contenu SSML (pas d'introduction).
-- Commence directement par une balise <speak>.
-- Utilise des balises SSML valides : <speak>, <break>, <emphasis>, etc.
-- Pas de texte ou balise Markdown autour (comme ```xml).
-- Pas d’introduction ou d’explication, uniquement du contenu SSML brut.
-- Le contenu doit être 100% compatible avec l’API Google Text-to-Speech.
-- Ne jamais ajouter d'encodage ou de contenu JSON. Seulement du XML valide.
-- Le contenu doit être fluide, expressif, adapté au profil.
+- Visitor Profile : {user_type}
+- Language : {language}
+Your Goal:
+ -Present the monument in an engaging and informative way.
+
+ -Include key information such as:
+
+  .Date of construction
+
+  .Historical or cultural value
+
+  .Impact and relevance today
+
+ -Adapt the style, vocabulary, and tone to suit the visitor's profile.
+
+ -Use expressive, clear, and friendly language.
+
+ -Make it captivating and emotionally engaging, especially for families or children.
+SSML Output Requirements:
+ -Output must be 100% valid SSML and start only with the <speak> tag.
+
+ -Use SSML tags like <break>, <emphasis>, <prosody>, <say-as>, etc., to enhance rhythm and clarity.
+
+ -No Markdown, JSON, or additional explanations — only return a pure, valid SSML XML block.
+
+ -Ensure full compatibility with Google Cloud Text-to-Speech (Wavenet voices).
+
+ -Do not include code formatting (like ```xml).
+
+ -The narration must sound natural, expressive, and emotionally resonant, adapted to the visitor's age and interest.
 """
 
     response = client.models.generate_content(model="gemini-2.0-flash",
