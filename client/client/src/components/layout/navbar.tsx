@@ -27,7 +27,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="relative z-50">
+    <header className="sticky top-0 z-50">
       <div className="absolute inset-0 mosaic-bg"></div>
       <nav
         className={`relative z-10 flex items-center justify-between px-6 py-4 bg-sand lg:px-16 transition-all duration-300 ${

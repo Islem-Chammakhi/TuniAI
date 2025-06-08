@@ -55,7 +55,7 @@ export const monumentsData: Monument[] = [
     id: 2,
   },
   {
-    name: "Great Mosque of Kairouan",
+    name: "Okba Mosque",
     description:
       "One of the oldest and most prestigious Islamic monuments in North Africa, dating back to 670 AD.",
     location: "Kairouan, Tunisia",
@@ -168,14 +168,13 @@ export const recognizedMonuments = {
   zaytouna_mosque: "Zaytuna Mosque",
 };
 
-
 /* Google Street View */
 export const monumentStreetViews: Record<string, string> = {
   el_jem:
     "https://www.google.com/maps/embed?pb=!4v1748604877726!6m8!1m7!1srsJkpdoolhm_L2yk49bcNw!2m2!1d35.2958804578607!2d10.7075521158882!3f322.05050098967143!4f13.597496778250331!5f0.4000000000000002",
 
   amphitheatre_carthage:
-    "https://www.google.com/maps/embed?pb=!4v1748717905542!6m8!1m7!1s5LEwpbLzgBoU3Ss_wJ09BA!2m2!1d36.85779971376986!2d10.32994820120078!3f266.37735854252236!4f-18.728554676044652!5f0.4000000000000002",
+    "https://www.google.com/maps/embed?pb=!4v1748969787812!6m8!1m7!1smeASNConcWJCY5Veeqx9HQ!2m2!1d36.85640856933636!2d10.31518885695443!3f212.6337860214946!4f-6.696727245919504!5f0.40158633163780144",
 
   aqueduc_zagouane:
     "https://www.google.com/maps/embed?pb=!4v1748607953274!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRDQzdC1PeVFF!2m2!1d36.60553921650673!2d10.1171187408944!3f94.42745877470614!4f9.426223751518592!5f0.4000000000000002",
@@ -239,6 +238,6 @@ export const monumentsHero = [
     name: "Carthage Amphitheater",
     description: "Large Roman amphitheater once seating over 30,000 spectators",
     location: "Carthage, Tunisia",
-    image: "https://i.ibb.co/XrGxq4yP/Carthage3.jpg",
+    image: "https://i.ibb.co/xqXqrfcT/amphitheatre-de-Carthage-1.jpg",
   },
 ];

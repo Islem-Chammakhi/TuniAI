@@ -1,21 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
-import { Button } from "@/components/ui/button";
-import MonumentCard from "@/components/ui/monument-card";
-import MonumentDetailView from "@/components/ui/monument-detail-view";
-import { getMonuments, monumentCategories } from "@/lib/monuments";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getMonuments } from "@/lib/monuments";
 import { Monument } from "@shared/schema";
+import MonumentCard from "@/components/ui/monument-card";
 
 export default function GallerySection() {
-  const [selectedCategory, setSelectedCategory] = useState("All Monuments");
-  const [visibleCount, setVisibleCount] = useState(6);
-  const [selectedMonumentId, setSelectedMonumentId] = useState<number | null>(
-    null
-  );
-  const [isDetailViewOpen, setIsDetailViewOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [monuments, setMonuments] = useState<Monument[]>([]);
   const [error, setError] = useState<Error | null>(null);
@@ -38,26 +28,6 @@ export default function GallerySection() {
 
     loadMonuments();
   }, []);
-
-  const filteredMonuments = monuments
-    ? selectedCategory === "All Monuments"
-      ? monuments
-      : monuments.filter((m: any) => m.category === selectedCategory)
-    : [];
-
-  const displayMonuments = filteredMonuments.slice(
-    0,
-    Math.min(visibleCount, filteredMonuments.length)
-  );
-
-  const handleMonumentClick = (id: number) => {
-    setSelectedMonumentId(id);
-    setIsDetailViewOpen(true);
-  };
-
-  const closeDetailView = () => {
-    setIsDetailViewOpen(false);
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,15 +63,6 @@ export default function GallerySection() {
           </p>
         </motion.div>
 
-        {/* Categories */}
-        <motion.div
-          className="flex overflow-x-auto scrollbar-hidden py-4 mb-8 gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        ></motion.div>
-
         {/* Gallery Grid */}
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,43 +95,14 @@ export default function GallerySection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
-            {displayMonuments.map((monument: any) => (
+            {monuments.map((monument: any) => (
               <motion.div key={monument.id} variants={itemVariants}>
                 <MonumentCard monument={monument} />
               </motion.div>
             ))}
           </motion.div>
         )}
-
-        {/* Load More Button */}
-        {!isLoading && filteredMonuments.length > visibleCount && (
-          <motion.div
-            className="mt-12 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          ></motion.div>
-        )}
-
-        {/* View All Link */}
-        {!isLoading && (
-          <motion.div
-            className="mt-8 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          ></motion.div>
-        )}
       </div>
-
-      {/* Monument Detail Modal */}
-      <MonumentDetailView
-        monumentId={selectedMonumentId}
-        isOpen={isDetailViewOpen}
-        onClose={closeDetailView}
-      />
     </section>
   );
 }

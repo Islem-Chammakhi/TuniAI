@@ -24,7 +24,11 @@ export default function PatternSection() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="bg-sand rounded-lg p-4">
+              <motion.div
+                whileHover={{ borderColor: "#D97706" }}
+                transition={{ duration: 0.3 }}
+                className="bg-sand rounded-lg p-4 border border-transparent"
+              >
                 <div className="bg-terracotta/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -48,9 +52,13 @@ export default function PatternSection() {
                   Reflect Islamic artistic tradition with complex mathematical
                   designs.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-sand rounded-lg p-4">
+              <motion.div
+                whileHover={{ borderColor: "#3B82F6" }}
+                transition={{ duration: 0.3 }}
+                className="bg-sand rounded-lg p-4 border border-transparent"
+              >
                 <div className="bg-azure-blue/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -73,9 +81,13 @@ export default function PatternSection() {
                 <p className="text-sm text-dark-brown/70">
                   Roman and Byzantine influence seen in detailed tilework.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-sand rounded-lg p-4">
+              <motion.div
+                whileHover={{ borderColor: "#4B5563" }}
+                transition={{ duration: 0.3 }}
+                className="bg-sand rounded-lg p-4 border border-transparent"
+              >
                 <div className="bg-olive-green/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -98,9 +110,13 @@ export default function PatternSection() {
                 <p className="text-sm text-dark-brown/70">
                   Stylized representations of natural elements and plants.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-sand rounded-lg p-4">
+              <motion.div
+                whileHover={{ borderColor: "#D97706" }}
+                transition={{ duration: 0.3 }}
+                className="bg-sand rounded-lg p-4 border border-transparent"
+              >
                 <div className="bg-terracotta/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +139,7 @@ export default function PatternSection() {
                 <p className="text-sm text-dark-brown/70">
                   Ancient indigenous designs with deep cultural meaning.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 

@@ -8,7 +8,7 @@ interface MonumentCardProps {
 export default function MonumentCard({ monument }: MonumentCardProps) {
   return (
     <motion.div
-      className="bg-[#fff8eb] rounded-xl shadow-md overflow-hidden hover-card cursor-pointer"
+      className="bg-[#fff8eb] rounded-xl shadow-md overflow-hidden  cursor-pointer"
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
     >
       <div className="relative">

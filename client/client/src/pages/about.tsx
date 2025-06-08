@@ -41,7 +41,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
             {/* LEFT COLUMN */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}
@@ -49,7 +49,11 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-col h-full space-y-8"
             >
-              <div className="bg-[#fff8eb] rounded-xl shadow-lg p-8">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+                className="bg-[#fff8eb] rounded-xl shadow-lg p-8 flex flex-col h-full"
+              >
                 <h2 className="text-2xl font-bold font-el-messiri text-terracotta mb-4">
                   Our Story
                 </h2>
@@ -67,9 +71,13 @@ export default function About() {
                   gems in remote regions, ensuring that visitors can discover
                   and appreciate the full spectrum of Tunisia's cultural wealth.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#fff8eb] rounded-xl shadow-lg p-8">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+                className="bg-[#fff8eb] rounded-xl shadow-lg p-8 flex flex-col h-full"
+              >
                 <h2 className="text-2xl font-bold font-el-messiri text-terracotta mb-4">
                   Our Technology
                 </h2>
@@ -84,7 +92,7 @@ export default function About() {
                   historical context, architectural details, cultural
                   significance, and practical visitor information.
                 </p>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* RIGHT COLUMN */}
@@ -94,7 +102,11 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col h-full space-y-8"
             >
-              <div className="bg-[#fff8eb] rounded-xl shadow-lg p-8">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+                className="bg-[#fff8eb] rounded-xl shadow-lg p-8 flex flex-col h-full"
+              >
                 <h2 className="text-2xl font-bold font-el-messiri text-terracotta mb-4">
                   Our Mission
                 </h2>
@@ -143,9 +155,13 @@ export default function About() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="bg-[#fff8eb] rounded-xl shadow-lg p-8">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.3 }}
+                className="bg-[#fff8eb] rounded-xl shadow-lg p-8 flex flex-col h-full"
+              >
                 <h2 className="text-2xl font-bold font-el-messiri text-terracotta mb-4">
                   Get Involved
                 </h2>
@@ -178,28 +194,29 @@ export default function About() {
                     </div>
                   ))}
                 </div>
-                {/*Contact Button */}
-                <button
-                  onClick={() =>
-                    window.scrollTo({
-                      top: document.body.scrollHeight,
-                      behavior: "smooth",
-                    })
-                  }
-                  className="mt-6 px-6 py-3 bg-terracotta text-white rounded-lg font-medium hover:bg-terracotta/90 transition-colors flex items-center justify-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 mr-2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+                <div className="mt-auto pt-6">
+                  <button
+                    onClick={() =>
+                      window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: "smooth",
+                      })
+                    }
+                    className="w-full px-6 py-3 bg-terracotta text-white rounded-lg font-medium hover:bg-terracotta/90 transition-colors flex items-center justify-center"
                   >
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                  </svg>
-                  <span>Contact Our Team</span>
-                </button>
-              </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    <span>Contact Our Team</span>
+                  </button>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

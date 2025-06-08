@@ -56,54 +56,18 @@ export default function PhotoUpload({ onImageUpload, isLoading }: PhotoUploadPro
     onImageUpload(file);
   };
 
-  const takePhoto = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      const videoElement = document.createElement('video');
-      const canvasElement = document.createElement('canvas');
-      
-      videoElement.srcObject = stream;
-      await videoElement.play();
-      
-      // Set dimensions
-      const width = videoElement.videoWidth;
-      const height = videoElement.videoHeight;
-      canvasElement.width = width;
-      canvasElement.height = height;
-      
-      // Draw video frame to canvas
-      const context = canvasElement.getContext('2d');
-      if (context) {
-        context.drawImage(videoElement, 0, 0, width, height);
-        
-        // Convert to file
-        canvasElement.toBlob((blob) => {
-          if (blob) {
-            const file = new File([blob], "camera-photo.jpg", { type: "image/jpeg" });
-            processFile(file);
-            
-            // Stop tracks
-            stream.getTracks().forEach(track => track.stop());
-          }
-        }, 'image/jpeg');
-      }
-    } catch (error) {
-      console.error('Error accessing camera:', error);
-      alert('Could not access camera. Please check your permissions.');
-    }
-  };
 
   return (
-    <div className="bg-[#fff8eb] rounded-2xl p-4 lg:p-10 shadow-lg">
-<div className="flex flex-col items-center text-center">
-  <h2 className="text-2xl font-bold font-el-messiri text-dark-brown mb-4">
-    Try Monument Recognition
-  </h2>
-  <p className="text-dark-brown/80 mb-6">
-    Upload a photo of a Tunisian monument or landmark to see our AI in
-    action. We'll identify it and provide detailed information.
-  </p>
-</div>
+    <div className="bg-[#fff8eb] rounded-2xl p-8 lg:py-14 lg:px-10 shadow-lg">
+      <div className="flex flex-col items-center text-center">
+        <h2 className="text-2xl font-bold font-el-messiri text-dark-brown mb-4">
+          Try Monument Recognition
+        </h2>
+        <p className="text-dark-brown/80 mb-6">
+          Upload a photo of a Tunisian monument or landmark to see our AI in
+          action. We'll identify it and provide detailed information.
+        </p>
+      </div>
 
       <div
         className={`border-2 border-dashed ${
@@ -147,7 +111,7 @@ export default function PhotoUpload({ onImageUpload, isLoading }: PhotoUploadPro
 
         <Button
           onClick={handleButtonClick}
-          className="px-6 py-2.5 bg-terracotta text-white rounded-lg font-medium hover:bg-opacity-90 transition-colors mt-6"
+          className="w-full sm:w-auto py-6 px-6 bg-terracotta text-white rounded-lg font-medium hover:bg-opacity-90 transition-colors mt-5 text-center break-words whitespace-normal"
           disabled={isLoading}
         >
           {isLoading ? (
@@ -162,20 +126,9 @@ export default function PhotoUpload({ onImageUpload, isLoading }: PhotoUploadPro
           )}
         </Button>
 
-        <p className="text-xs text-dark-brown/50 mt-4">
+        <p className="text-xs text-dark-brown/50 mt-5">
           Supports JPG, PNG • Max size 10MB
         </p>
-      </div>
-
-      <div className="mt-6 flex items-center justify-center">
-        <Button
-          className="flex items-center justify-center space-x-2 px-5 py-2.5 bg-azure-blue rounded-lg text-white font-medium"
-          onClick={takePhoto}
-          disabled={isLoading}
-        >
-          <Camera className="h-4 w-4 mr-2" />
-          <span>Take Photo Instead</span>
-        </Button>
       </div>
     </div>
   );
