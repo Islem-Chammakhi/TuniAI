@@ -17,70 +17,7 @@ const TravelResult: React.FC<TravelResultProps> = ({
   onStartOver,
   data,
 }) => {
-  // Generate AI suggestion based on form data
-  const generateSuggestion = () => {
-    const suggestions = {
-      historical: {
-        name: "Carthage Archaeological Site",
-        description:
-          "Explore the ancient ruins of the mighty Carthaginian empire with stunning Mediterranean views.",
-        image:
-          "https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800&h=600&fit=crop",
-        highlights: ["Ancient Roman Baths", "Punic Ports", "National Museum"],
-      },
-      religious: {
-        name: "Great Mosque of Kairouan",
-        description:
-          "Discover the spiritual heart of Tunisia in this UNESCO World Heritage sacred city.",
-        image:
-          "https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800&h=600&fit=crop",
-        highlights: [
-          "Historic Medina",
-          "Aghlabid Basins",
-          "Carpet Weaving Workshops",
-        ],
-      },
-      natural: {
-        name: "Chott el Djerid Salt Lake",
-        description:
-          "Marvel at the otherworldly landscapes of Tunisia's largest salt lake in the Sahara.",
-        image:
-          "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=800&h=600&fit=crop",
-        highlights: [
-          "Desert Oasis",
-          "Mirages & Salt Formations",
-          "Sunset Views",
-        ],
-      },
-      cultural: {
-        name: "Sidi Bou Said",
-        description:
-          "Wander through the iconic blue and white village overlooking the Mediterranean.",
-        image:
-          "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=800&h=600&fit=crop",
-        highlights: [
-          "Traditional Architecture",
-          "Art Galleries",
-          "Café des Nattes",
-        ],
-      },
-      beaches: {
-        name: "Hammamet Beach Resort",
-        description:
-          "Relax on pristine sandy beaches with crystal-clear waters and luxury amenities.",
-        image:
-          "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&h=600&fit=crop",
-        highlights: ["Water Sports", "Spa Treatments", "Beachfront Dining"],
-      },
-    };
 
-    // Select suggestion based on primary interest
-    const primaryInterest = formData.interests[0] || "cultural";
-    return (
-      suggestions[primaryInterest as keyof typeof suggestions] ||
-      suggestions.cultural
-    );
-  };
 
   const getBudgetDisplay = () => {
     switch (formData.budget) {
@@ -125,7 +62,7 @@ const TravelResult: React.FC<TravelResultProps> = ({
     }
   };
 
-  const suggestion = generateSuggestion();
+
 
   return (
     <motion.div
@@ -153,8 +90,8 @@ const TravelResult: React.FC<TravelResultProps> = ({
                   alt="destination"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
               </div>
               <div className="p-6 text-gray-800 mt-2">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2 text-orange-700">
@@ -167,23 +104,7 @@ const TravelResult: React.FC<TravelResultProps> = ({
             {/* Content */}
             <div className="px-6 pb-8">
               {/* Key Details Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.4 }}
-                  className="flex items-center space-x-3 p-4 bg-orange-50 rounded-xl"
-                >
-                  <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-orange-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Location</p>
-                    <p className="font-semibold text-gray-800">
-                      {suggestion.name}
-                    </p>
-                  </div>
-                </motion.div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
