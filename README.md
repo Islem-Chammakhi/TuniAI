@@ -19,8 +19,8 @@ powered by Gemini 2.0 Flash.
 ## Getting Started
 1. **Clone the project**
    ```bash
-   git clone https://github.com/Islem-Chammakhi/TuniAI.git
-   cd tuniai
+   git clone https://github.com/Islem-Chammakhi/TuniTales.git
+   cd tunitales
    ```
    
 1. **Create a .env file in the python directory and add your environment variables.**
