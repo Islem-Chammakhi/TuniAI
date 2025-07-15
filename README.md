@@ -12,6 +12,9 @@ and offers brief descriptions and rich cultural insights to guide and inspire ex
 At its core, our app combines multiple AI technologies: a fine-tuned EfficientNetB0 model for monument recognition, voice narration delivered via Google Cloud's Text-to-Speech, and a trip planning system 
 powered by Gemini 2.0 Flash.
 
+## Demo
+You can view the demo [here](https://drive.google.com/file/d/1xiL7k3d7-w0yAFbiE2fsUIy83xwre6wr/view?usp=sharing).
+
 ## Created By
 - Islem Chammakhi
 - Firas Ben Ali
